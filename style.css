@@ -1803,7 +1803,7 @@ a {
 
   .hero-desc { margin-bottom: 22px; }
 
-  /* CORRECTED: Four hero buttons in two columns on mobile */
+  /* Four hero buttons in two columns on mobile */
   .hero-cta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2096,4 +2096,35 @@ a {
     flex-direction: column;
     gap: 2px;
   }
+}
+
+/* =========================================================
+   MOBILE ONLY: SEARCH BELOW BOOKING SECTION
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .hero-grid > :first-child {
+    order: 1;
+    width: 100%;
+  }
+
+  .hero-grid > .hero-right {
+    order: 2;
+    width: 100%;
+  }
+
+  .page-search-widget {
+    order: 3;
+    width: 100%;
+    margin: 20px 0 0;
+  }
+
 }
