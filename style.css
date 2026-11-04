@@ -2099,19 +2099,47 @@ a {
 }
 
 /* =========================================================
-   MOBILE ONLY: SEARCH BELOW BOOKING SECTION
+   SEARCH BAR POSITIONING
+   Desktop: keep the estimator on the right and the search below the intro.
+   Mobile: show the estimator first, then the search bar.
    ========================================================= */
 
-@media (max-width: 600px) {
+/* Desktop/tablet layout */
+@media (min-width: 601px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: start;
+  }
 
+  .hero-left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-right {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 100%;
+  }
+
+  .page-search-widget {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin: 20px 0 0;
+  }
+}
+
+/* Mobile: search bar appears immediately after the estimator */
+@media (max-width: 600px) {
   .hero-grid {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 28px;
+    gap: 20px;
   }
 
-  .hero-grid > :first-child {
+  .hero-grid > .hero-left {
     order: 1;
     width: 100%;
   }
@@ -2121,10 +2149,18 @@ a {
     width: 100%;
   }
 
-  .page-search-widget {
+  .hero-grid > .page-search-widget {
     order: 3;
     width: 100%;
-    margin: 20px 0 0;
+    margin: 0 0 8px;
   }
 
+  .page-search-wrap {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .page-search-input {
+    min-width: 0;
+  }
 }
